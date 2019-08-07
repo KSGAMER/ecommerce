@@ -11,6 +11,7 @@ export class CartComponent implements OnInit {
 
   constructor(private cart: Cart) { }
   private cartline = [];
+  private position: number;
 
   ngOnInit() {
     this.cartline = this.cart.getCartLine();
@@ -21,7 +22,10 @@ export class CartComponent implements OnInit {
   }
 
   onIndex(i: number) {
-    console.log(i);
-    this.cart.deleteLine(i);
+    this.position = i;
+  }
+
+  onDelete() {
+    this.cart.deleteLine(this.position);
   }
 }

@@ -21,9 +21,28 @@
             <div class="col-5">{{product.product.productName}}</div>
             <div class="col-2">{{product.product.MSRP | currency}}</div>
             <div class="col-2">{{product.product.MSRP*product.quantity | currency}}</div>
-            <div class="col-1"><button class="btn btn-sm btn-danger" (click)="onIndex(i)">x</button></div>
+            <div class="col-1"><button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="onIndex(i)"><i class="fas fa-trash"></i></button></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle text-warning"></i> Advertencia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Esta seguro de eliminar este producto?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="onDelete()" data-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
