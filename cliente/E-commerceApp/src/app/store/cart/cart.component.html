@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+<br>
+<div class="container">
+  <div class="card border-primary text-center">
+    <div class="card-header text-primary">
+      Carrito de Compras
+    </div>
+    <div class="card-body text-primary">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-2 border">Cantidad</div>
+            <div class="col-5 border">Producto</div>
+            <div class="col-2 border">Precio Unitario</div>
+            <div class="col-2 border">Sub-Total</div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row mt-1 mb-1" *ngFor="let product of cartline; let i = index;">
+            <div class="col-2"><input type="number" min="1" (change)="changeQuantity(product.product, $event.target.value)" [value]="product.quantity" class="form-control"></div>
+            <div class="col-5">{{product.product.productName}}</div>
+            <div class="col-2">{{product.product.MSRP | currency}}</div>
+            <div class="col-2">{{product.product.MSRP*product.quantity | currency}}</div>
+            <div class="col-1"><button class="btn btn-sm btn-danger" (click)="onIndex(i)">x</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<app-footer></app-footer>
