@@ -1,0 +1,63 @@
+<app-nav></app-nav>
+<br>
+<div class="col-lg-12" *ngFor="let product of Product;">
+  <div class="row">
+    <div class="col-lg-6">
+      <a style="cursor:pointer;"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-4 font-weight-bold">
+          Product Name:
+        </div>
+        <div class="col-lg-8">
+          {{product.productName}}
+        </div>
+        <div class="col-lg-4 font-weight-bold">
+          Description:
+        </div>
+        <div class="col-lg-8">
+          {{product.productDescription}}
+        </div>
+        <div class="col-lg-4 font-weight-bold">
+          Product Line:
+        </div>
+        <div class="col-lg-8">
+          {{product.productLine}}
+        </div>
+        <div class="col-lg-4 font-weight-bold">
+          Scale:
+        </div>
+        <div class="col-lg-8">
+          {{product.productScale}}
+        </div>
+        <div class="col-lg-4 font-weight-bold">
+          Buy Price:
+        </div>
+        <div class="col-lg-8">
+          {{product.MSRP | currency}}
+        </div>
+        <div class="col-lg-4 font-weight-bold">
+          Vendor:
+        </div>
+        <div class="col-lg-8">
+          {{product.productVendor}}
+        </div>
+        <div class="col-lg-4 font-weight-bold">
+          Quantity:
+        </div>
+        <div class="col-lg-8">
+          {{product.quantityInStock}}
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8"><button type="button" class="btn btn-primary btn-block" (click)="addProduct(product)">Agregar</button></div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<app-footer></app-footer>

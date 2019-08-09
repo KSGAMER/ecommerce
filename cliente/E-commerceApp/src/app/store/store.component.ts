@@ -24,7 +24,7 @@ export class StoreComponent implements OnInit {
 
   get products(): Product[] {
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    return this.productReposService.getProducts(this.selectedCategory, this.selectedScale, this.selectedVendor).slice(pageIndex, pageIndex + this.productsPerPage);
+    return this.productReposService.getProducts(this.selectedCategory, this.selectedScale, this.selectedVendor).slice(pageIndex, pageIndex + +this.productsPerPage);
   }
 
   get categories(): string[] {

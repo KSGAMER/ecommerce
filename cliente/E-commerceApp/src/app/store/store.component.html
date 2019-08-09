@@ -62,10 +62,10 @@
 
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let product of products">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
+            <a [routerLink]="product.productCode" style="cursor:pointer;"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div style="cursor:pointer;" [routerLink]="product.productCode" class="card-body">
               <h4 class="card-title">
-                <a href="#">{{product.productName}}</a>
+                <a>{{product.productName}}</a>
               </h4>
               <h5><span class="badge badge-pill badge-info">{{product.MSRP | currency}}</span></h5>
               <p class="card-text">{{product.productDescription | slice:0:100}}</p>
@@ -87,7 +87,7 @@
         <nav aria-label="...">
           <ul class="pagination pagination-sm  justify-content-end">
             <li class="page-item" *ngFor="let page of pageNumbers" [class.active]="page == selectedPage"
-              (click)="chagePage(page)"><a class="page-link" href="#">{{page}}</a></li>
+              (click)="chagePage(page)"><a class="page-link" style="cursor: pointer;">{{page}}</a></li>
           </ul>
         </nav>
       </div>
