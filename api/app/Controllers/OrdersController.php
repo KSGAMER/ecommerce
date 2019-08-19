@@ -10,5 +10,11 @@
 
             return json_encode($message);
         }
+
+        function selectOrders($request, $response) {
+            $message = $this->OrdersModel->selectOrders();
+
+            return json_encode($message);
+        }
     }
 ?>

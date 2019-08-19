@@ -44,5 +44,29 @@
                 'description' => 'The order was register'
             );
         }
+
+        function selectOrders() {
+            $sth = $this->db->pdo->prepare('SELECT o.orderNumber, p.productName, od.quantityOrdered, p.MSRP  FROM orders o INNER JOIN orderdetails od on od.orderNumber = o.orderNumber INNER JOIN products p on p.productCode = od.productCode');
+            $sth->execute();
+            $result = $sth->fetchAll(\PDO::FETCH_ASSOC);
+            
+            if($sth->errorInfo()[1]) {
+                return array(
+                    'error' => true,
+                    'description' => $sth->errorInfo()[2]
+                );
+            } else if(empty($result)) {
+                return array(
+                    'notFound' => true,
+                    'description' => 'The result is empty'
+                );
+            }
+
+            return array(
+                'success' => true,
+                'description' => 'The customers were found',
+                'orders' => $result
+            );
+        }
     }
 ?>
